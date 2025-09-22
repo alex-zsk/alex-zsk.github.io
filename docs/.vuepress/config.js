@@ -14,6 +14,5 @@ export default defineUserConfig({
     navbar: ['/', '/get-started'],
   }),
 
-  bundler: viteBundler(),
-  base: '/note-sharing/',
+  bundler: viteBundler()
 })
