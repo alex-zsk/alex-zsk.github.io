@@ -4,12 +4,12 @@
 
 經過前人數十年的發展，我們現在一般接觸到的是高級語言(High-level Programming Language)，比如常見的 C、C++、Python、Java、JavaScript 等等。
 
-在 代碼編輯器 / IDE （Integrated Development Environment 集成開發環境，如 Visual Studio Code 等）中點擊運行後，高級語言會首先被編譯器 (compiler) 編譯為匯編語言(assembly language)，再組譯 (assemble) 為機器語言 (machine languages)。
+在 代碼編輯器 / IDE （Integrated Development Environment 集成開發環境，如 Visual Studio Code 等）中點擊運行後，高級語言會首先被編譯器 (compiler) 編譯為匯編語言 (assembly language)，再組譯 (assemble) 為機器語言 (machine languages)。
 
 ## Basic Rules
 
 1. 程序語法所使用的符號（如 `()`、`{}`、`“”`）皆為英文符號；
-2. 在寫代碼時，應該使用有意義的變量名 (identifiers) 和添加注釋 (comments)。
+2. 在寫代碼時，應該使用有意義的識別符 (identifiers) 和添加注釋 (comments)，使得代碼更易讀，有助於日後的 debug 和維護工作。
 
 ## Frequently Used Keywords (Keep Updating…)
 
@@ -27,8 +27,6 @@
 另外，由於編程時經常會遇到不同的 error，受限於個人能力，我們往往需要求助別人或者是 AI，所以懂得如何提問能夠有效減少你與他人溝通成本，強烈建議閱讀 [《提問的智慧》](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README.md)，這樣你在求助時可以事半功倍。
 
 :::
-
-
 
 
 
