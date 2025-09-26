@@ -13,8 +13,6 @@ C 語言是一門比較底層的編程語言，可以控制底層硬件和高效
 1. C 語言是大小寫敏感 (case sensitive)，即 `Printf`不等於 `printf`，大小寫不能混用，否則會報錯；
 2. 在 C 語言中，縮進 (indentation) 只是為了便於閱讀，通常不會對程序產生影響，但依舊建議正確使用縮進，方便程序編寫和 debug；
 3. 除非是特定語法要求，否則在程序裡面的空格、空行通常是不影響程序運行，但依舊建議在多行代碼中善用空行作為分隔，以便於閱讀
-4. 程序語法所使用的符號（如 `()`、`{}`、`“”`）皆為英文符號；
-5. 在寫代碼時，應該使用有意義的變量名 (identifiers) 和添加注釋 (comments)。
 
 ### Basic Structures
 
@@ -24,7 +22,7 @@ C 語言是一門比較底層的編程語言，可以控制底層硬件和高效
 int main() { 
     printf("Hello World!");
     // Or other instructions
-    return 0
+    return 0;
 }
 ```
 
@@ -34,7 +32,7 @@ int main() {
 - `int` : 用來指定返回 (return) 值的數據類型 (data type)，這次是 `return 0`，所以返回的數據類型是 integer 
 - `main()` ：
   - main 函數是整個程序的入口點，即一開始執行的函數，每個程序只有一個 main 函數
-  - `main()`中的括號 `()` 是用於傳入參數 (parameters)，這個程序括號是空的代表不接受外部傳入的參數（參數傳入日後再談，現在可以忽略）
+  - `main()`中的括號 `()` 是用於傳入參數 (parameters)，這個程序括號是空的代表不接受外部傳入的參數（參數傳入日後再談，現在可以忽略），有時我們會見到 `main(void)`，`void`通常代表不接受外部傳入的參數
 - `{}`：花括號用於包裹實現這個函數功能的具體代碼
 - `printf`是指在屏幕上顯示文字，每一個完整語句後面都要加上 `;`
 - `return 0` 是指返回一個整數 (integer) 值 `0`，`0` 通常表示程序成功執行，在 main 函數是可以省略的，因為編譯器會自動添加 `return 0`，但依舊建議寫上 `return 0`
@@ -57,8 +55,11 @@ int main() {
     printf("It doesn't insert a new line.");
 
     printf("\nIt is a string.\nIt is a new line.");
+    return 0;
 }
 ```
+
+輸出結果：
 
 ```
 It is a string.It doesn't insert a new line.
@@ -66,23 +67,68 @@ It is a string.
 It is a new line.
 ```
 
+
+
 #### Variables & Assignment Operators
 
 變量 (variable) 是編程語言的一個重要概念，它就像一個儲物櫃，裡面儲存不同類型的值。
 
 每一個變量都必須由名字 (identifier) 和數據類型 (data type) 組成，就如同儲物櫃也有不同編號和不同種類。變量不可以存儲不同數據類型的值，比如 integer 類型不能儲存字符串 (string)。
 
-同時，在使用變量前，我們都必須定義變量 (declare variable)，否則程序就會找不到要使用的變量名，產生報錯。
+同時，在使用變量前，我們都必須定義變量 (declare variable)，否則程序就會找不到要使用的變量名，產生報錯。強烈建議
 
-在 C 語言中，我們可以每行定義一個變量，也可以每行定義多個變量，同時我們在定義變量時，也可以選擇賦不賦值 (assign)。
+在 C 語言中，我們可以每行定義一個變量，也可以每行定義多個變量，同時我們在定義變量時，也可以選擇賦不賦值 (assign)。並且，在賦值後，我們也可以修改變量的值
 
 ```c
 int main() { // 由於不涉及到 input and output 或其他外部庫，可以不用添加 #include <stdio.h>
     int a; // 每行定義一個變量
+    int a = 6; // 賦值 a 為 6
+    
     int b, c; // 每行定義多個變量，用逗號隔開
     int d = 5; // 賦值 d 為 5
+    
+    d = 7; // 修改 d 為 7
+    return 0;
 }
 ```
+
+變量一大用處就是可以自動調整程序輸出的內容，例如當我們使用 `printf`時，我們可以調用變量來自動調整輸出內容。
+
+在 C 語言中調用變量，我們需要使用格式說明符 (format specifiers)，本質上屬於變量的佔位符 (placeholder)，用來告訴電腦變量應該放在哪個位置上。integer 的格式說明符是 `%d`。
+
+格式如下：
+
+```c
+printf("text... <&format_specifiers_1> text... <&format_specifiers_2>", identifier_1, identifier_2);
+```
+
+格式說明符是包裹在雙引號內，代表它是字符串的一部分，之後通過`,`隔開字符串和變量名，一行可以輸出多個變量。
+
+每個變量名跟格式說明符是一對一的關係，從左到右按序調用。
+
+```c
+#include <stdio.h>
+int main() {
+    int d = 5; 
+    printf("Before modification: %d", d);
+    d = 7;
+    printf("\nAfter modification: %d", d);
+    // 同時輸出多個變量
+    int a = 1;
+    printf("\na = %d; b=%d", a, d);
+    return 0;
+}
+```
+
+輸出結果：
+
+```
+Before modification: 5
+After modification: 7
+a = 1; b=7
+```
+
+
 
 
 
@@ -92,5 +138,6 @@ int main() { // 由於不涉及到 input and output 或其他外部庫，可以�
 
 1. [C 语言的基本结构 | 你必须熟练的让人心疼_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1L4z3YaENw?p=5)
 2. Lecture Note (01b. C Language Basics)
-3. 
+3. [C Format Specifiers](“https://www.w3schools.com/c/c_variables_format.php”)
+4. 
 
