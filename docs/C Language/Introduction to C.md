@@ -27,16 +27,16 @@ int main() {
 ```
 
 - `#include <stdio.h>` : 告訴編譯器需要加載什麼標準庫 (standard libraries)，如同加載插件，通常放置在程序的開頭
-  - `stdio` : “std” 是 standard，”io” 是 input and output 
+  - `stdio` : “std” 是 standard，”io” 是 input and output ，也就是 standard input and output
 
-- `int` : 用來指定返回 (return) 值的數據類型 (data type)，這次是 `return 0`，所以返回的數據類型是 integer 
+- `int` : 用來指定返回 (return) 值的數據類型 (data type)，這個程序是 `return 0`，所以返回的數據類型是 integer 
 - `main()` ：
   - main 函數是整個程序的入口點，即一開始執行的函數，每個程序只有一個 main 函數
-  - `main()`中的括號 `()` 是用於傳入參數 (parameters)，這個程序括號是空的代表不接受外部傳入的參數（參數傳入日後再談，現在可以忽略），有時我們會見到 `main(void)`，`void`通常代表不接受外部傳入的參數
+  - `main()`中的括號 `()` 是用於傳入參數 (parameters)，這個程序括號是空的，代表不接受外部傳入的參數（參數傳入日後再談，現在可以忽略），有時我們會見到 `main(void)`，`void`代表不接受外部傳入的參數，所以 `main(void)`的效果是等同於 `main()`
 - `{}`：花括號用於包裹實現這個函數功能的具體代碼
 - `printf`是指在屏幕上顯示文字，每一個完整語句後面都要加上 `;`
 - `return 0` 是指返回一個整數 (integer) 值 `0`，`0` 通常表示程序成功執行，在 main 函數是可以省略的，因為編譯器會自動添加 `return 0`，但依舊建議寫上 `return 0`
-  - `return`後面的內容不會被程序執行
+  - **註：**`return`後面的代碼不會被執行
 
 ## Basic Syntax
 
@@ -143,7 +143,7 @@ a = 1; b=7
 1. 清晰易懂、有意義：使他人一眼就看明白標識符的用途；
 2. 保持一致性：程序內使用的命名規則應該是統一的：
    1. 使用下劃線分隔字母：如 `class_num`；
-   2. 小駝峰命名法，除首個單詞外，每個單詞的首字母大寫：如 `classNum`；
+   2. 小駝峰命名法（除首個單詞外，每個單詞的首字母大寫）：如 `classNum`；
 3. 整個名字不全部大寫：全大寫是用來表示 constant
 
 ### Console Input (`scanf`)
@@ -161,7 +161,7 @@ a = 1; b=7
 
 int main() {
     int user_input; // 定義變量 user_input
-    printf("Please input: ");
+    printf("Please input: "); // 提示用戶輸入
     scanf("%d", &user_input); // 獲取用戶輸入
     
     printf("User inputs %d\n", user_input);
