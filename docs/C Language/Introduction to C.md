@@ -6,13 +6,13 @@
 
 ## What is C Language
 
-C 語言是一門比較底層的編程語言，可以控制底層硬件和高效的運行效率，因此很多知名的系統和軟件都是用 C 語言編寫，比如 Windows 、MacOS，就連 Python 主要使用解釋器 CPython 也是用 C 語言開發。
+C 語言是一門比較底層的編程語言，可以控制底層硬件和高效的運行效率，因此很多知名的系統和軟件都是用 C 語言編寫，比如 Windows 、MacOS，就連 Python 主要使用的解釋器 CPython 也是用 C 語言開發。
 
 ## Basic Rules
 
-1. C 語言是大小寫敏感 (case sensitive)，即 `Printf`不等於 `printf`，大小寫不能混用，否則會報錯；
+1. C 語言是大小寫敏感 (case sensitive)，大小寫不能混用，即 `Printf`不等於 `printf`，否則程序會報錯；
 2. 在 C 語言中，縮進 (indentation) 只是為了便於閱讀，通常不會對程序產生影響，但依舊建議正確使用縮進，方便程序編寫和 debug；
-3. 除非是特定語法要求，否則在程序裡面的空格、空行通常是不影響程序運行，但依舊建議在多行代碼中善用空行作為分隔，以便於閱讀
+3. 除非是特定語法要求，否則在程序裡面的空格、空行通常是不影響程序運行。但依舊建議在多行代碼中善用空行作為分隔，以便於閱讀。
 
 ## Basic Structures
 
@@ -27,24 +27,27 @@ int main() {
 ```
 
 - `#include <stdio.h>` : 告訴編譯器需要加載什麼標準庫 (standard libraries)，如同加載插件，通常放置在程序的開頭
-  - `stdio` : “std” 是 standard，”io” 是 input and output ，也就是 standard input and output
+  - `stdio` : “std” 是 standard，”io” 是 input and output ，也就是用來處理輸入、輸出，所以我們在使用 `printf`和 `scanf`函數時要導入這個標准庫。
 
-- `int` : 用來指定返回 (return) 值的數據類型 (data type)，這個程序是 `return 0`，所以返回的數據類型是 integer 
+- `int` : 用來指定返回 (return) 值的數據類型 (data type)，這個程序是 `return 0`，所以返回的數據類型是 integer 。
 - `main()` ：
-  - main 函數是整個程序的入口點，即一開始執行的函數，每個程序只有一個 main 函數
-  - `main()`中的括號 `()` 是用於傳入參數 (parameters)，這個程序括號是空的，代表不接受外部傳入的參數（參數傳入日後再談，現在可以忽略），有時我們會見到 `main(void)`，`void`代表不接受外部傳入的參數，所以 `main(void)`的效果是等同於 `main()`
-- `{}`：花括號用於包裹實現這個函數功能的具體代碼
-- `printf`是指在屏幕上顯示文字，每一個完整語句後面都要加上 `;`
-- `return 0` 是指返回一個整數 (integer) 值 `0`，`0` 通常表示程序成功執行，在 main 函數是可以省略的，因為編譯器會自動添加 `return 0`，但依舊建議寫上 `return 0`
-  - **註：**`return`後面的代碼不會被執行
+  - main 函數是整個程序的入口點，即一開始執行的函數，每個程序只有一個 main 函數；
+  - `main()`中的括號 `()` 是用於傳入參數 (parameters)，這個程序括號是空的，代表不接受外部傳入的參數（參數傳入日後再談，現在可以忽略）；
+    - 有時我們會見到 `main(void)`，`void`代表不接受外部傳入的參數，所以 `main(void)`的效果是等同於 `main()`。
+- `{}`：花括號用於包裹實現這個函數功能的具體代碼。
+- `printf`是指在屏幕上顯示文字，每一個完整語句後面都要加上 `;`。
+- `return 0` 是指返回一個整數 (integer) 值 `0`，`0` 通常表示程序成功執行。
+  - 在 main 函數是可以省略的，因為編譯器會自動添加 `return 0`，但依舊建議寫上 `return 0`；
+  - **註：**`return`後面的代碼不會被執行。
+  
 
 ## Basic Syntax
 
 ### Console Output (`printf`)
 
 1. `printf` 是 print 和 formatted 的縮寫，意思是格式化打印；
-2. `printf("The text you want to output.");`文字必須要用 雙引號（`“”`）包裹，代表是字符串常量 (string constant)；
-3. 由於 C 語言中，`printf`不會自動換行，如果要每次輸出都新開一行，我們要使用轉義符 (escape character)，這個是在字符串中有特殊含義的字符，常用的有 `/n`，代表換新行。
+2. 文字必須要用 雙引號（`“”`）包裹，代表是字符串常量 (string constant)，如`printf("The text you want to output.");`；
+3. 由於 C 語言中，`printf`不會自動換行，如果每次輸出都要新開一行，我們要使用轉義符 (escape character)，轉義符是指在字符串中有特殊含義的字符，常用的有 `/n`，代表換新行 (new line)。
 
 ```c
 #include <stdio.h>
